@@ -34,6 +34,10 @@ ROOTDIR=`pwd`
 export ROOTDIR=$ROOTDIR
 
 echo "CONFIG_FIRMWARE_INCLUDE_WING=y" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_NGINX=y" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_SSSERVER=y" >> .config
+#echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
+#echo "CONFIG_FIRMWARE_INCLUDE_FRPC=y" >> .config
 
 kernel_id="3.4.x"
 kernel_cf=""
