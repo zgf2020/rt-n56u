@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 if echo "$1" | grep : > /dev/null; then
-	for BOARD_NAME in XY-C1 NEWIFI3 NEWIFI-MINI K2P-5.0 RM2100 R2100; do
+	for BOARD_NAME in XY-C1 NEWIFI3 NEWIFI-MINI K2P RM2100 R2100; do
 		./clear_tree
 		fakeroot ./build_firmware_modify "$BOARD_NAME"
 		TRX=`ls images/*.trx`
