@@ -198,6 +198,13 @@ fakeroot ./build_firmware_modify PSG1218
 ./clear_tree
 ```
 
+* 构建和刷写（Yonsm 追加，替代上面的`克隆源码`和`清理代码树并开始编译`）
+```shell
+#git clone --depth=1 https://github.com/Yonsm/rt-n56u.git /opt/rt-n56u
+./make_firmware PSG1218
+./flash_firmware 192.168.2.1
+```
+
 ***
 
 ### 请参阅 ###
