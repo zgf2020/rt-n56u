@@ -28,14 +28,12 @@ jobs:
         include:
           - build_variant: "mt7620"
             targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20"
-          - build_variant: "mt7628"
-            targets: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A"
           - build_variant: "mt7621"
-            targets: "K2P_nano K2P DIR-878 RM2100 CR660x"
+            targets: "DIR-878 RM2100 CR660x"
           - build_variant: "mt7621-usb"
-            targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 DIR-882 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
+            targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Prepare environment
         run: |
           sudo apt update
@@ -68,13 +66,13 @@ jobs:
           echo "image_name=${image_name}" >> $GITHUB_ENV
       - name: Upload images to Artifact
         if: ${{ github.event_name != 'release' && success() }}
-        uses: actions/upload-artifact@v2.2.1
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ env.image_name }}
           path: ${{ env.images_dir }}/*.7z
       - name: Upload images to Releases
         if: ${{ github.event_name == 'release' && success() }}
-        uses: svenstaro/upload-release-action@2.2.0
+        uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.images_dir }}/*.trx
