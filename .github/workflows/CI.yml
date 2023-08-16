@@ -31,7 +31,7 @@ jobs:
           - build_variant: "mt7621"
             targets: "DIR-878 RM2100 CR660x"
           - build_variant: "mt7621-usb"
-            targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
+            targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 MSG1500 WR1200JS MI-R3G NEWIFI3 B70 RT-AC1200GU"
     steps:
       - uses: actions/checkout@v3
       - name: Prepare environment
